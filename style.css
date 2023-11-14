@@ -23,4 +23,15 @@
     border-radius: 30px;
 }
 
+.form-range-div{
+    position: relative;
+}
+
+output{
+    position: absolute;
+    top: -25px;
+    left: 50%;
+}
+
+
 
