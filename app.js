@@ -27,32 +27,64 @@ console.log(symbols);
 let password = []
 createBtn.addEventListener("click", ()=>{
     password = []
+    countNumber = 0;
+    countSymbols = 0;
     for(let i = 1; i<=10; i++){
+    
+        while(!(countNumber >= 3 && countSymbols >=2)){
 
-        let randomChoice = Math.floor(Math.random()*3);
-        // choice random one of the arrays
+            let randomChoice = Math.floor(Math.random()*3);
+            // choice random one of the arrays
+    
+            let choicen = common[randomChoice]
+    
+            // take a list one of them
+            console.log(choicen);
+    
+            if(randomChoice === 0){
+                countSymbols++
+            }
+            else if(randomChoice === 1){
+                countNumber++
+            }
+    
+            // create a random number smaller than choicen list length
+            let randomLength = Math.floor(Math.random()*choicen.length);
+            
+            console.log(randomLength);
+            let filtered = choicen.filter((item, index) => index === randomLength);
+    
+            console.log(filtered);
+    
+            password.push(...filtered)
+    
+    
+            
+        }
+    
 
-        let choicen = common[randomChoice]
+        }
 
-        // take a list one of them
-        console.log(choicen);
-
-        // create a random number smaller than choicen list length
-        let randomLength = Math.floor(Math.random()*choicen.length);
         
-        console.log(randomLength);
-        let filtered = choicen.filter((item, index) => index === randomLength);
-
-        console.log(filtered);
-
-        password.push(...filtered)
-      
-    }
+    console.log(`the password contains ${countNumber} times number `)
+    console.log(`the password contains ${countSymbols} times symbol `)
     console.log(password);
     passwordText = password.join('');
     console.log(passwordText);
+    
    
 });
+
+
+const control = () =>{
+    // numberları say
+    // sembolleri say
+    // büyük küçük harf say
+    // bunlar gerçekleşmediyse tekrar çalış
+    const numberCondition = (value) =>{
+        password.filter()
+    }
+}
 
 
 
