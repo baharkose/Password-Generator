@@ -24,83 +24,93 @@ console.log(number);
 
 console.log(symbols);
 
-let password = []
+
+
 createBtn.addEventListener("click", ()=>{
-            let password = []
+
+             let password = []
+            // let password = []
             let countNumber = 0;
             let countSymbols = 0;
             // let counter = 10;
 
     
-    while (countNumber < 3 || countSymbols < 2 || password.length < 10){
-    
-            // for (let i = 0; i <=10; i++){
+            while(password.length < 11 )
+            {
 
-            
 
-                    let randomChoice = Math.floor(Math.random()*3);
-                    // choice random one of the arrays
-            
-                    let choicen = common[randomChoice]
-            
-                    // take a list one of them
-                    console.log(choicen);
-
-                     // create a random number smaller than choicen list length
-                     let randomLength = Math.floor(Math.random()*choicen.length);
-                    
-                     console.log(randomLength);
-                     let filtered = choicen.filter((item, index) => index === randomLength);
-             
-                     console.log(filtered);
-            
-                    if(randomChoice === 0 && countSymbols < 2 && password.length<10) {
-                        countSymbols++
-                        password.push(...filtered)
-                    }
-
-                    else if (randomChoice === 1 && countNumber < 3 && password.length<10){
-                        countNumber++
-                        password.push(...filtered)
-
-                    }
-                    
-                    else if (randomChoice === 2 && password.length < 10){
-                        password.push(...filtered)
-
-                }
-            
-                    
-                // }
-            
-
-    }  
-    
-
-    
-
+                    // for (let i = 0; i <=10; i++){
         
-    console.log(`the password contains ${countNumber} times number `)
-    console.log(`the password contains ${countSymbols} times symbol `)
-    console.log(password);
-    passwordText = password.join('');
-    console.log(passwordText);
-    displayResult.textContent = passwordText;
-    // displayResult.textContent = passwordText;
-    
-   
-});
+                    
+        
+                            let randomChoice = Math.floor(Math.random()*3);
+                            // choice random one of the arrays
+                    
+                            let choicen = common[randomChoice]
+                    
+                            // take a list one of them
+                            console.log(choicen);
+        
+                             // create a random number smaller than choicen list length
+                             let randomLength = Math.floor(Math.random()*choicen.length);
+                            
+                             console.log(randomLength);
+                             let filtered = choicen.filter((item, index) => index === randomLength);
+                     
+                             console.log(filtered);
+                    
+                            if(randomChoice === 0 && countSymbols < 2 && password.length<10) {
+                                countSymbols++
+                                password.push(...filtered)
+                                
+                            }
+                            else if (randomChoice === 1 && countNumber < 3 && password.length<10){
+                                countNumber++
+                                password.push(...filtered)
+        
+                            }
+                            
+                            else if (randomChoice === 2 && password.length < 10){
+                                password.push(...filtered)
+                                const randomBinary = Math.round(Math.random());
+        
+                                if(randomBinary){
+                                    filtered2 = filtered.map(item=>item.toUpperCase());
+                                    password.push(...filtered2)
+                                }
+                                else{
+                                   password.push(...filtered)
+                                }
+                                
+            
+                            }
+        
+                        }
+                    
+                            
+                        // }
+                    
+        
+            
+            
+        
+            
+        
+                
+            console.log(`the password contains ${countNumber} times number `)
+            console.log(`the password contains ${countSymbols} times symbol `)
 
+                        console.log(password);
+            passwordText = password.join('');
+            console.log(passwordText);
+            displayResult.textContent = passwordText;
+            // displayResult.textContent = passwordText;
+            
+            password.length;
+           
+        });
+     
 
-const control = () =>{
-    // numberları say
-    // sembolleri say
-    // büyük küçük harf say
-    // bunlar gerçekleşmediyse tekrar çalış
-    const numberCondition = (value) =>{
-        password.filter()
-    }
-}
 
 
 

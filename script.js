@@ -1,36 +1,48 @@
 const displayResult = document.getElementById("display-result");
-const createBtn = document.getElementById("create-btn");
+const createBtn = document.querySelector(".create");
 
-const symbols = "!@#$%^&*()_+~|}{[]:;?><,./-=";
+const symbols = "!@#$%^&*()\\_+~|}{[]:;?><,./-=";
 const numbers = "0123456789";
-const alphabets = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const alphabets = "abcdefghijklmnopqrstuvwxyz";
 
-createBtn.addEventListener("click", generatePassword);
 
-function generatePassword() {
-    let password = '';
-    let countNumbers = 0;
-    let countSymbols = 0;
+createBtn.addEventListener("click", () => {
 
-    while (password.length < 10 || countNumbers < 3 || countSymbols < 2) {
+  let password = [];
+  let countNumbers = 0;
+  let countSymbols = 0;
+
+  while ((password.length < 10) && ((countNumbers < 2) || (countSymbols < 3))) {
         let randomChoice = Math.floor(Math.random() * 3);
+        let choice;
 
         if (randomChoice === 0 && countSymbols < 2) {
-            password += getRandomCharacter(symbols);
-            countSymbols++;
+
+                choice = symbols;
+                countSymbols++;
+
         } else if (randomChoice === 1 && countNumbers < 3) {
-            password += getRandomCharacter(numbers);
-            countNumbers++;
-        } else if (randomChoice === 2) {
-            password += getRandomCharacter(alphabets);
+
+                choice = numbers;
+                countNumbers++;
+
+        } else {
+                choice = alphabets;
+                if (Math.round(Math.random())) {
+                    choice = choice.toUpperCase();
+                }
         }
-    }
 
-    console.log(`Password: ${password}`);
-    displayResult.textContent = password;
-}
+        let rastgeleIndex = Math.floor(Math.random() * choice.length);
+                password.push(choice[rastgeleIndex]);
+        }
 
-function getRandomCharacter(characterSet) {
-    const randomIndex = Math.floor(Math.random() * characterSet.length);
-    return characterSet[randomIndex];
-}
+        console.log(`Şifre ${countNumbers} adet sayı içeriyor.`);
+        console.log(`Şifre ${countSymbols} adet sembol içeriyor.`);
+        console.log(password);
+
+
+
+        displayResult.textContent = password.join('');
+        
+});
