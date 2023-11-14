@@ -23,7 +23,7 @@
         <h4>Generate secure, random passwords to stay safe online</h4>
         <div class="generation-area mt-5">
             <h4>Generated password:</h4>
-            <div class="d-flex align-items-center justify-content-center w-100 h-50 text-center display-4 gap-2" >
+            <div class="d-flex align-items-center justify-content-center w-100 h-50 text-center gap-2" >
               <p id="display-result">şifreler buraya</p>
                 <button class="btn btn-primary create" id="create-btn">Create</button>
             </div>
@@ -50,24 +50,24 @@
                       min="0" 
                       max="100" 
                       class="form-range" 
-                      id="customRange1"
+                      id="form-range"
                       oninput="this.nextElementSibling.value = this.value"
                       >
-                      <output>24</output>
+                      <output id="form-range-value">24</output>
                     </div>
                      
                 <div class="form-check">
                     <input 
                           class="form-check-input" 
                           type="checkbox" 
-                          value="" 
-                          id="length-numbers-symbols">
+                          value="number" 
+                          id="number">
                     <label class="form-check-label" for="flexCheckDefault">
                       Numbers
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="symbol">
+                    <input class="form-check-input" type="checkbox" value="symbol" id="symbol">
                     <label class="form-check-label" for="flexCheckChecked">
                       Symbols
                     </label>
