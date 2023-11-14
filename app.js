@@ -8,7 +8,7 @@
 
 
 const displayResult = document.getElementById("display-result")
-const createBtn = document.getElementById("display-result")
+const createBtn = document.querySelector(".create")
 
 const sembol = `!@#$%^&*()\\_+~|}{[]:;?><,./-=`;
 let symbols = sembol.split("") 
@@ -26,44 +26,58 @@ console.log(symbols);
 
 let password = []
 createBtn.addEventListener("click", ()=>{
-    password = []
-    countNumber = 0;
-    countSymbols = 0;
-    for(let i = 1; i<=10; i++){
-    
-        while(!(countNumber >= 3 && countSymbols >=2)){
+            let password = []
+            let countNumber = 0;
+            let countSymbols = 0;
+            // let counter = 10;
 
-            let randomChoice = Math.floor(Math.random()*3);
-            // choice random one of the arrays
     
-            let choicen = common[randomChoice]
+    while (countNumber < 3 || countSymbols < 2 || password.length < 10){
     
-            // take a list one of them
-            console.log(choicen);
-    
-            if(randomChoice === 0){
-                countSymbols++
-            }
-            else if(randomChoice === 1){
-                countNumber++
-            }
-    
-            // create a random number smaller than choicen list length
-            let randomLength = Math.floor(Math.random()*choicen.length);
+            // for (let i = 0; i <=10; i++){
+
             
-            console.log(randomLength);
-            let filtered = choicen.filter((item, index) => index === randomLength);
-    
-            console.log(filtered);
-    
-            password.push(...filtered)
-    
-    
+
+                    let randomChoice = Math.floor(Math.random()*3);
+                    // choice random one of the arrays
             
-        }
+                    let choicen = common[randomChoice]
+            
+                    // take a list one of them
+                    console.log(choicen);
+
+                     // create a random number smaller than choicen list length
+                     let randomLength = Math.floor(Math.random()*choicen.length);
+                    
+                     console.log(randomLength);
+                     let filtered = choicen.filter((item, index) => index === randomLength);
+             
+                     console.log(filtered);
+            
+                    if(randomChoice === 0 && countSymbols < 2 && password.length<10) {
+                        countSymbols++
+                        password.push(...filtered)
+                    }
+
+                    else if (randomChoice === 1 && countNumber < 3 && password.length<10){
+                        countNumber++
+                        password.push(...filtered)
+
+                    }
+                    
+                    else if (randomChoice === 2 && password.length < 10){
+                        password.push(...filtered)
+
+                }
+            
+                    
+                // }
+            
+
+    }  
     
 
-        }
+    
 
         
     console.log(`the password contains ${countNumber} times number `)
@@ -71,6 +85,8 @@ createBtn.addEventListener("click", ()=>{
     console.log(password);
     passwordText = password.join('');
     console.log(passwordText);
+    displayResult.textContent = passwordText;
+    // displayResult.textContent = passwordText;
     
    
 });
